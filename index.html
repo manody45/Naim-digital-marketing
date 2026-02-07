@@ -4,98 +4,153 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Digital Marketing | Home</title>
+
+<!-- Google Font -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
 
 <style>
-body { 
-    margin:0; 
-    font-family: Poppins, sans-serif; 
+/* ===== GLOBAL ===== */
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
     background: linear-gradient(to bottom, #1e3a8a, #ffffff, #facc15);
-    color:#000;
+    color: #000;
 }
 
-header { background:transparent; padding:20px; }
-
-nav a { 
-    margin:0 15px; 
-    color:#000; 
-    text-decoration:none; 
-    font-weight:500; 
+/* ===== NAV ===== */
+header {
+    padding: 20px;
 }
 
-.hero { 
-    padding:40px 20px 80px 20px;
-    text-align:center; 
-    background: url('/mnt/data/358cb139-1486-49d6-974e-20aafd275dfa.avif') no-repeat center center;
+nav {
+    text-align: center;
+}
+
+nav a {
+    margin: 0 15px;
+    color: #000;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+/* ===== HERO SECTION ===== */
+.hero {
+    min-height: 100vh; /* FULL SCREEN */
+    padding: 40px 20px 80px;
+    text-align: center;
+
+    background-image: url('/mnt/data/358cb139-1486-49d6-974e-20aafd275dfa.avif');
     background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
     position: relative;
-    border-radius:12px;
+    border-radius: 12px;
 }
 
+/* Overlay gelap */
 .hero::before {
     content: "";
     position: absolute;
-    top:0;
-    left:0;
-    width:100%;
-    height:100%;
-    background: rgba(0,0,0,0.5);
-    border-radius:12px;
-    z-index:0;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.6);
+    border-radius: 12px;
+    z-index: 0;
 }
 
-.hero-top-img {
-    width:100%;
-    display:block;
-    border-radius:12px 12px 0 0; 
-    margin:0 auto 20px auto;
+/* Logo */
+.hero img {
+    max-width: 350px;
+    width: 80%;
+    margin: 0 auto 30px;
+    display: block;
+    position: relative;
+    z-index: 1;
 }
 
+/* Hero Box */
 .hero-box {
     position: relative;
-    z-index:1;
-    background:#000;
-    color:#fff;
-    padding:40px 20px;
-    border-radius:12px;
-    max-width:800px;
-    margin:auto;
-    
+    z-index: 1;
+    background: #000;
+    color: #fff;
+    padding: 40px 20px;
+    border-radius: 12px;
+    max-width: 800px;
+    margin: auto;
+
     border: 4px solid;
     border-image-slice: 1;
-    border-width: 4px;
-    border-image-source: linear-gradient(90deg, #1e3a8a, #ffffff, #facc15, #1e3a8a);
+    border-image-source: linear-gradient(
+        90deg,
+        #1e3a8a,
+        #ffffff,
+        #facc15,
+        #1e3a8a
+    );
     animation: neonBorder 3s linear infinite;
 }
 
+/* Animasi Border */
 @keyframes neonBorder {
-    0% { border-image-source: linear-gradient(90deg, #1e3a8a, #ffffff, #facc15, #1e3a8a); }
-    25% { border-image-source: linear-gradient(180deg, #1e3a8a, #ffffff, #facc15, #1e3a8a); }
-    50% { border-image-source: linear-gradient(270deg, #1e3a8a, #ffffff, #facc15, #1e3a8a); }
-    75% { border-image-source: linear-gradient(360deg, #1e3a8a, #ffffff, #facc15, #1e3a8a); }
+    0%   { border-image-source: linear-gradient(90deg, #1e3a8a, #ffffff, #facc15, #1e3a8a); }
+    25%  { border-image-source: linear-gradient(180deg, #1e3a8a, #ffffff, #facc15, #1e3a8a); }
+    50%  { border-image-source: linear-gradient(270deg, #1e3a8a, #ffffff, #facc15, #1e3a8a); }
+    75%  { border-image-source: linear-gradient(360deg, #1e3a8a, #ffffff, #facc15, #1e3a8a); }
     100% { border-image-source: linear-gradient(450deg, #1e3a8a, #ffffff, #facc15, #1e3a8a); }
 }
 
-button { 
-    background:#2563eb; 
-    color:white; 
-    border:none; 
-    padding:12px 24px; 
-    border-radius:8px; 
-    cursor:pointer; 
-    font-weight:600; 
+/* Text */
+.hero-box h1 {
+    font-size: 48px;
+    font-weight: 700;
+    margin-bottom: 20px;
 }
-button:hover { background:#1d4ed8; }
 
-footer { 
-    text-align:center; 
-    padding:20px; 
-    margin-top:60px; 
-    color:#000; 
+.hero-box p {
+    font-size: 18px;
+    max-width: 700px;
+    margin: auto;
+}
+
+/* Button */
+button {
+    margin-top: 20px;
+    background: #2563eb;
+    color: #fff;
+    border: none;
+    padding: 14px 28px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+button:hover {
+    background: #1d4ed8;
+}
+
+/* ===== FOOTER ===== */
+footer {
+    text-align: center;
+    padding: 20px;
+    margin-top: 60px;
+    color: #000;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+    .hero-box h1 {
+        font-size: 32px;
+    }
+
+    .hero-box p {
+        font-size: 16px;
+    }
 }
 </style>
 </head>
+
 <body>
 
 <header>
@@ -108,19 +163,21 @@ footer {
 </nav>
 </header>
 
-<section class="hero" style="filter: brightness(1.3); text-align:center;">
+<section class="hero">
 
-    <img src="logogiatmara.jpg" alt="logo"
-    style="width:400px; height:auto; display:block; margin:0 auto 20px auto; position:relative; z-index:1;">
+    <img src="logogiatmara.jpg" alt="Logo">
 
     <div class="hero-box">
-        <h1 style="font-size:48px; font-weight:700;">Digital Marketing Solutions</h1>
-        <p style="max-width:700px; margin:auto; font-size:18px;">
-            Kami membantu bisnes anda berkembang melalui strategi digital moden seperti SEO, Social Media & Targeted Ads.
+        <h1>Digital Marketing Solutions</h1>
+        <p>
+            Kami membantu bisnes anda berkembang melalui strategi digital moden
+            seperti SEO, Social Media & Targeted Ads.
         </p>
-        <br>
-        <a href="services.html"><button>Lihat Servis</button></a>
+        <a href="services.html">
+            <button>Lihat Servis</button>
+        </a>
     </div>
+
 </section>
 
 <footer>
@@ -129,5 +186,4 @@ footer {
 
 </body>
 </html>
-
 
