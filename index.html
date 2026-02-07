@@ -36,8 +36,8 @@ nav a {
 
 /* ===== HERO SECTION ===== */
 .hero {
-    min-height: 100vh; /* FULL SCREEN */
-    padding: 40px 20px 80px;
+    min-height: 100vh;
+    padding: 60px 20px;
     text-align: center;
 
     background-image: url('/mnt/data/358cb139-1486-49d6-974e-20aafd275dfa.avif');
@@ -49,38 +49,39 @@ nav a {
     border-radius: 12px;
 }
 
-/* Overlay gelap */
+/* Overlay */
 .hero::before {
     content: "";
     position: absolute;
     inset: 0;
-    background: rgba(0, 0, 0, 0.6);
+    background: rgba(0,0,0,0.6);
     border-radius: 12px;
     z-index: 0;
 }
 
-/* Logo */
+/* ===== LOGO (BESARKAN) ===== */
 .hero img {
-    max-width: 350px;
-    width: 80%;
-    margin: 0 auto 30px;
+    max-width: 480px;   /* 🔥 lebih besar */
+    width: 90%;
+    margin: 0 auto 40px;
     display: block;
     position: relative;
     z-index: 1;
 }
 
-/* Hero Box */
+/* ===== HERO BOX (KECILKAN) ===== */
 .hero-box {
     position: relative;
     z-index: 1;
     background: #000;
     color: #fff;
-    padding: 40px 20px;
+
+    padding: 30px 20px;   /* 🔽 padding dikurangkan */
     border-radius: 12px;
-    max-width: 800px;
+    max-width: 650px;     /* 🔽 kotak lebih kecil */
     margin: auto;
 
-    border: 4px solid;
+    border: 3px solid;
     border-image-slice: 1;
     border-image-source: linear-gradient(
         90deg,
@@ -103,24 +104,24 @@ nav a {
 
 /* Text */
 .hero-box h1 {
-    font-size: 48px;
+    font-size: 40px;   /* 🔽 sedikit kecil */
     font-weight: 700;
-    margin-bottom: 20px;
+    margin-bottom: 15px;
 }
 
 .hero-box p {
-    font-size: 18px;
-    max-width: 700px;
+    font-size: 16px;
+    max-width: 520px;
     margin: auto;
 }
 
 /* Button */
 button {
-    margin-top: 20px;
+    margin-top: 18px;
     background: #2563eb;
     color: #fff;
     border: none;
-    padding: 14px 28px;
+    padding: 12px 26px;
     border-radius: 8px;
     cursor: pointer;
     font-weight: 600;
@@ -140,12 +141,20 @@ footer {
 
 /* ===== RESPONSIVE ===== */
 @media (max-width: 768px) {
+    .hero img {
+        max-width: 320px;
+    }
+
+    .hero-box {
+        max-width: 90%;
+    }
+
     .hero-box h1 {
-        font-size: 32px;
+        font-size: 30px;
     }
 
     .hero-box p {
-        font-size: 16px;
+        font-size: 15px;
     }
 }
 </style>
@@ -165,8 +174,10 @@ footer {
 
 <section class="hero">
 
+    <!-- LOGO BESAR -->
     <img src="logogiatmara.jpg" alt="Logo">
 
+    <!-- KOTAK HITAM KECIL -->
     <div class="hero-box">
         <h1>Digital Marketing Solutions</h1>
         <p>
@@ -186,4 +197,3 @@ footer {
 
 </body>
 </html>
-
