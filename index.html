@@ -10,14 +10,29 @@
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
 
 <style>
-body {
+/* RESET ASAS */
+* {
     margin: 0;
-    font-family: 'Poppins', sans-serif;
-    color: #000;
+    padding: 0;
+    box-sizing: border-box;
 }
 
+body {
+    font-family: 'Poppins', sans-serif;
+    color: #fff;
+    background: #0b0c10;
+}
+
+/* NAVBAR */
 header {
-    padding: 20px;
+    padding: 20px 40px;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    background: rgba(0,0,0,0.6);
+    backdrop-filter: blur(8px);
 }
 
 nav {
@@ -25,10 +40,27 @@ nav {
 }
 
 nav a {
-    margin: 0 15px;
-    color: #000;
+    margin: 0 20px;
+    color: #fff;
     text-decoration: none;
     font-weight: 500;
+    position: relative;
+    transition: 0.3s;
+}
+
+nav a::after {
+    content: '';
+    position: absolute;
+    width: 0%;
+    height: 2px;
+    background: #facc15;
+    left: 0;
+    bottom: -6px;
+    transition: 0.3s;
+}
+
+nav a:hover::after {
+    width: 100%;
 }
 
 /* HERO SECTION */
@@ -39,74 +71,95 @@ nav a {
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
+    overflow: hidden;
 }
 
-/* LOGO FULL SCREEN */
+/* HERO IMAGE + GRADIENT */
+.hero-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: 1;
+}
+
 .hero-image img {
     width: 100%;
-    height: auto;
-    max-height: 80vh; /* bagi ruang untuk kotak hitam bawah */
+    height: 100%;
     object-fit: cover;
-    display: block;
+    filter: brightness(0.5);
+    transition: transform 1.5s ease;
+}
+
+.hero-image img:hover {
+    transform: scale(1.05);
 }
 
 /* HERO BOX */
 .hero-box {
-    background: rgba(0,0,0,0.85);
+    position: relative;
+    z-index: 2;
+    background: rgba(0,0,0,0.75);
     color: #fff;
-    padding: 30px 20px;
-    border-radius: 12px;
-    max-width: 650px;
+    padding: 40px 30px;
+    border-radius: 15px;
+    max-width: 700px;
     text-align: center;
-    margin-top: -40px; /* naik sikit atas gambar */
-    border: 3px solid;
+    box-shadow: 0 0 50px rgba(250,202,21,0.6);
+    border: 2px solid;
     border-image-slice: 1;
-    border-image-source: linear-gradient(
-        90deg,
-        #1e3a8a,
-        #ffffff,
-        #facc15,
-        #1e3a8a
-    );
+    border-image-source: linear-gradient(90deg, #1e3a8a, #ffffff, #facc15, #1e3a8a);
     animation: neonBorder 3s linear infinite;
+    backdrop-filter: blur(5px);
 }
 
-/* Animasi Border */
+/* Neon Border Animation */
 @keyframes neonBorder {
-    0%   { border-image-source: linear-gradient(90deg, #1e3a8a, #ffffff, #facc15, #1e3a8a); }
-    25%  { border-image-source: linear-gradient(180deg, #1e3a8a, #ffffff, #facc15, #1e3a8a); }
-    50%  { border-image-source: linear-gradient(270deg, #1e3a8a, #ffffff, #facc15, #1e3a8a); }
-    75%  { border-image-source: linear-gradient(360deg, #1e3a8a, #ffffff, #facc15, #1e3a8a); }
+    0% { border-image-source: linear-gradient(90deg, #1e3a8a, #ffffff, #facc15, #1e3a8a); }
+    25% { border-image-source: linear-gradient(180deg, #1e3a8a, #ffffff, #facc15, #1e3a8a); }
+    50% { border-image-source: linear-gradient(270deg, #1e3a8a, #ffffff, #facc15, #1e3a8a); }
+    75% { border-image-source: linear-gradient(360deg, #1e3a8a, #ffffff, #facc15, #1e3a8a); }
     100% { border-image-source: linear-gradient(450deg, #1e3a8a, #ffffff, #facc15, #1e3a8a); }
 }
 
-/* Text */
+/* HERO TEXT */
 .hero-box h1 {
-    font-size: 40px;
+    font-size: 48px;
     font-weight: 700;
-    margin-bottom: 15px;
+    margin-bottom: 20px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    text-shadow: 0 0 15px #facc15, 0 0 30px #1e3a8a;
 }
 
 .hero-box p {
+    font-size: 18px;
+    line-height: 1.6;
+    max-width: 600px;
+    margin: 0 auto 25px auto;
+    text-shadow: 0 0 10px rgba(0,0,0,0.7);
+}
+
+/* BUTTON */
+.hero-box a button {
+    padding: 15px 35px;
     font-size: 16px;
-    max-width: 520px;
-    margin: auto;
-}
-
-/* Button */
-button {
-    margin-top: 18px;
-    background: #2563eb;
-    color: #fff;
-    border: none;
-    padding: 12px 26px;
-    border-radius: 8px;
-    cursor: pointer;
     font-weight: 600;
+    color: #fff;
+    background: linear-gradient(90deg, #2563eb, #facc15);
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.5s;
+    box-shadow: 0 5px 20px rgba(250,202,21,0.5);
 }
 
-button:hover {
-    background: #1d4ed8;
+.hero-box a button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 30px rgba(250,202,21,0.8);
 }
 
 /* FOOTER */
@@ -114,13 +167,15 @@ footer {
     text-align: center;
     padding: 20px;
     margin-top: 60px;
+    color: #facc15;
+    font-weight: 500;
 }
 
 /* RESPONSIVE */
 @media (max-width: 768px) {
-    .hero-box h1 {
-        font-size: 30px;
-    }
+    .hero-box h1 { font-size: 32px; }
+    .hero-box p { font-size: 16px; }
+    nav a { margin: 0 10px; }
 }
 </style>
 </head>
@@ -138,12 +193,12 @@ footer {
 
 <section class="hero">
 
-    <!-- LOGO BESAR -->
+    <!-- LOGO FULLSCREEN -->
     <div class="hero-image">
         <img src="logogiatmara.jpg" alt="Logo Fullscreen">
     </div>
 
-    <!-- KOTAK HITAM BAWAH LOGO -->
+    <!-- HERO BOX -->
     <div class="hero-box">
         <h1>NAIM DIGITAL MARKETING</h1>
         <p>
